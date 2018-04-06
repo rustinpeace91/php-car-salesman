@@ -1,0 +1,11 @@
+body {
+	background-image:url("../images/trafficjamo.jpg");
+}
+.card {
+    margin-bottom:1rem;
+}
+
+.jumbotron, .card-header-title, .btn-primary {
+    background-color:#dd4d0b;
+    color:#fff;
+}
