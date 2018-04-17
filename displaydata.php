@@ -1,29 +1,19 @@
 <?php
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "root";
-	$dbname = "used_cars";
-
-	$conn = new mysqli($servername, $username, $password, $dbname);
-
-	if ($conn->connect_error){
-		die("Connection failed: " . $conn->connect_error);
-	} 
-		echo "connected succesffuly";
-	$sql = "SELECT Make, Model, Year, Miles, Price FROM roster";
-	$result = $conn->query($sql);
-
+include 'db.php';
 	if ($result->num_rows > 0 ){
+		$iterator = 1;
 		while($row = $result->fetch_assoc()) {
 			echo "<tr>";
-			echo "<td>" . $row["Make"] . "</td>"; 
-			echo "<td>" . $row["Model"] . "</td>";
-			echo "<td>" . $row["Year"] . "</td>";
-			echo "<td>" . $row["Miles"] . "</td>";
-			echo "<td>" . $row["Price"] . "</td>";
+			echo "<td>" . $iterator . "</td>";
+			echo "<td>" . $row["make"] . "</td>"; 
+			echo "<td>" . $row["model"] . "</td>";
+			echo "<td>" . $row["dateman"] . "</td>";
+			echo "<td>" . $row["miles"] . " Miles</td>";
+			echo "<td>$" . $row["price"] . "</td>";
 			
 			echo "</tr>";
+			$iterator++;
 		}
 	} else {
 		echo "no data yet";

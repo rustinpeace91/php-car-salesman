@@ -32,7 +32,7 @@
           <!-- Moment.js Reference -->
           <script src="https://momentjs.com/downloads/moment.js"></script>   
           <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-          <script src="assets/javascript/app.js"></script>
+ 
 
           <link rel="stylesheet" href="assets/css/style.css">
       
@@ -60,6 +60,7 @@
                         <table class = "table table-striped" id = "train-table">
                             <thead>
                                 <tr>
+                                    <th>Lot # </th>
                                     <th>Car Make</th>
                                     <th>Car Model</th>
                                     <th>Year</th>
@@ -95,27 +96,27 @@
                 </div>
                 
                 <div class = "card-body">
-                    <form action = "php/submit.php">
+                    <form name = "car" id = "car-form" action = "adddata.php" onsubmit = "return validateForm()" method = "post">
 
                     <div class = "form-group">
                         <label-for = "train-name">Car Make:</label-for>
-                        <input class = "form-control" id = "train-name" type = "text">
+                        <input class = "form-control" name = "make" type = "text">
                     </div>
                     <div class = "form-group">
                         <label-for = "destination">Car Model:</label-for>
-                        <input class = "form-control" id = "destination" type = "text">
+                        <input class = "form-control" name = "model" type = "text">
                     </div>                    
                     <div class = "form-group">
                         <label-for = "first-train-time">Year Manufactured:</label-for>
-                        <input class = "form-control" id = "first-train-time" type = "text">
+                        <input class = "form-control" name = "dateman" type = "text">
                     </div>
                     <div class = "form-group">
                         <label-for = "frequency">Miles:</label-for>
-                        <input class = "form-control" id = "frequency" type = "text">
+                        <input class = "form-control" name = "miles" type = "text">
                     </div>
                     <div class = "form-group">
                         <label-for = "frequency">Your asking price:</label-for>
-                        <input class = "form-control" id = "frequency" type = "text">
+                        <input class = "form-control" name = "price" type = "text">
                     </div>  
                    
                     <input id="submit-data" class="btn btn-primary" type="submit" value="Submit">
@@ -144,5 +145,18 @@
             </div>
     </div>
 </div>
+<script>
+    function validateForm(){
+        var x = document.forms["car"]["dateman"].value;
+        if (x == "") {
+            alert("Name must be filled out");
+            return false;
+        } 
+        if (parseInt(x) === NaN ) {
+            alert("Needs to be a number");
+            return false;
+        }
+    }
+</script>
 </body>
 </html>
