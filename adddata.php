@@ -83,7 +83,6 @@
 
 
 
-                    if(gettype($dateman) === 'integer' )
 
                     $query = "INSERT INTO car_roster
                     (`make`, 
