@@ -96,7 +96,7 @@
                 </div>
                 
                 <div class = "card-body">
-                    <form name = "car" id = "car-form" action = "adddata.php" onsubmit = "return validateForm()" method = "post">
+                    <form name = "car" id = "car-form" onsubmit = "return validateForm()" action = "adddata.php"  method = "post">
 
                     <div class = "form-group">
                         <label-for = "train-name">Car Make:</label-for>
@@ -108,15 +108,15 @@
                     </div>                    
                     <div class = "form-group">
                         <label-for = "first-train-time">Year Manufactured:</label-for>
-                        <input class = "form-control" name = "dateman" type = "text">
+                        <input id = "yearman" class = "form-control" name = "dateman" type = "text">
                     </div>
                     <div class = "form-group">
                         <label-for = "frequency">Miles:</label-for>
-                        <input class = "form-control" name = "miles" type = "text">
+                        <input id = "miles" class = "form-control" name = "miles" type = "text">
                     </div>
                     <div class = "form-group">
                         <label-for = "frequency">Your asking price:</label-for>
-                        <input class = "form-control" name = "price" type = "text">
+                        <input id = "price" class = "form-control" name = "price" type = "text">
                     </div>  
                    
                     <input id="submit-data" class="btn btn-primary" type="submit" value="Submit">
@@ -147,13 +147,16 @@
 </div>
 <script>
     function validateForm(){
-        var x = document.forms["car"]["dateman"].value;
-        if (x == "") {
-            alert("Name must be filled out");
+        var year = document.getElementById("yearman").value;
+        var miles = document.getElementById("yearman").value;
+        var price = document.getElementById("yearman").value;
+
+        if (year == "" || miles == "" || price == "") {
+            alert("All fields must be filled out");
             return false;
         } 
-        if (parseInt(x) === NaN ) {
-            alert("Needs to be a number");
+        if (isNaN(parseInt(year)) || isNaN(parseInt(miles)) || isNaN(parseInt(price))) {
+            alert("Year, Miles and Price need to be valid numbers");
             return false;
         }
     }

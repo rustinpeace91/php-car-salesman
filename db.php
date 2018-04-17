@@ -1,11 +1,8 @@
 <?php 
 
-$servername = "localhost";
-	$username = "root";
-	$password = "root";
-	$dbname = "used_cars";
+    include "db-config.php";
 
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli(HOST, USER, PASSWORD, DATABASE);
 
 	if ($conn->connect_error){
 		die("Connection failed: " . $conn->connect_error);
